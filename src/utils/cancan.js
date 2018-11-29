@@ -17,7 +17,7 @@ const {
  * 2. create. can create
  * 3. show. can show the details
  * 4. edit. can edit and update
- * 5. delete. can delete
+ * 5. destroy. can destroy
  */
 
 const Role = getResourceClass('role')

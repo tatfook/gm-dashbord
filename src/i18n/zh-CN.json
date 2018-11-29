@@ -40,12 +40,14 @@
   "delete": "删除",
   "save": "保存",
   "cancel": "取消",
+  "update": "更新",
   "ok": "确定",
   "export": "导出",
   "new": "新增",
   "addFilter": "筛选",
   "deleteAll": "删除全部",
   "search": "搜索",
+  "send": "发送",
 
   "resources": {
     "Admin": {
@@ -66,6 +68,40 @@
         "updatedAt": "更新日期"
       },
       "management": "用户管理"
+    },
+    "Email": {
+      "attr": {
+        "id": "序号",
+        "mid": "邮件号",
+        "status": "发送状态",
+        "adminId": "管理员",
+        "sender": "发送者",
+        "title": "标题",
+        "content": "内容",
+        "addresseeType": "接收人类型",
+        "receivers": "接收者",
+        "mailType": "邮件类型",
+        "attachments": "附件",
+        "validTime": "有效时长(秒)",
+        "showPriority": "显示优先级",
+        "isDestroy": "阅后是否销毁",
+        "isPopping": "是否弹出邮件",
+        "delayAt": "延期发送时间",
+        "createdAt": "创建日期",
+        "updatedAt": "更新日期"
+      }
+    },
+    "Notice": {
+      "attr": {
+        "id": "序号",
+        "nid": "公告编号",
+        "status": "发送状态",
+        "adminId": "管理员",
+        "content": "内容",
+        "serverIds": "服务器",
+        "createdAt": "创建日期",
+        "updatedAt": "更新日期"
+      }
     }
   }
 }

@@ -11,7 +11,7 @@
         <template slot-scope="scope">
           <el-button v-if="can('show')" size="mini" @click="handleAction('show', scope.row)">{{$t('show')}}</el-button>
           <el-button v-if="can('edit')" type="primary" size="mini" @click="handleAction('edit', scope.row)">{{$t('edit')}}</el-button>
-          <el-button v-if="can('delete')" type="warning" size="mini" @click="handleAction('delete', scope.row)">{{$t('delete')}}</el-button>
+          <el-button v-if="can('destroy')" type="warning" size="mini" @click="handleAction('delete', scope.row)">{{$t('delete')}}</el-button>
           <el-button v-for="op in canActions" :key="op.name" @click="handleAction(op.name, scope.row)" size="mini" :type="op.button">{{$t(op.name)}}</el-button>
         </template>
       </el-table-column>
@@ -86,17 +86,19 @@ export default {
       roles: 'roles'
     }),
     actionAreaWidth() {
-      const defaultLength = ['show', 'edit', 'destroy'].length
-      const disableLength = (this.resourceClass.actions().disabled || []).length
-      const extraLength = (this.resourceClass.actions().extra || []).length
+      const defaultAction = ['show', 'edit', 'delete']
+      const disabled = this.resourceClass.actions().disabled || []
+      const extraLength = this.canActions.length
       const buttonWidth = 80
-      return (defaultLength - disableLength + extraLength) * buttonWidth
+      return (_.difference(defaultAction, disabled).length + extraLength) * buttonWidth
     },
     canActions() {
       const extraAxtions = this.resourceClass.actions().extra || []
-      return _.remove(extraAxtions, action => {
-        !this.can(action)
+      _.remove(extraAxtions, action => {
+        return !this.can(action.name)
       })
+      console.log(extraAxtions)
+      return extraAxtions
     },
     attrs() {
       return this.resourceClass.showableAttrs()

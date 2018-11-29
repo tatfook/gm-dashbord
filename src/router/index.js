@@ -71,21 +71,31 @@ export const asyncRouterMap = [{
   path: '/',
   component: Layout,
   name: 'Operation',
-  children: [{
-    path: '/user',
-    component: () => import('@/views/operation/user/index'),
-    name: 'User',
-    resource: 'User',
-    meta: {
-      title: '用户管理'
+  children: [
+    {
+      path: '/user',
+      component: () => import('@/views/operation/user/index'),
+      name: 'User',
+      resource: 'User',
+      meta: {
+        title: '用户管理'
+      }
+    }, {
+      path: '/email',
+      component: () => import('@/views/operation/email/index'),
+      name: 'Email',
+      resource: 'Email',
+      meta: {
+        title: '邮件管理'
+      }
+    }, {
+      path: '/notice',
+      component: () => import('@/views/operation/notice/index'),
+      name: 'Notice',
+      resource: 'Notice',
+      meta: {
+        title: '公告管理'
+      }
     }
-  }, {
-    path: '/user',
-    component: () => import('@/views/operation/user/index'),
-    name: 'User',
-    resource: 'User',
-    meta: {
-      title: '用户管理'
-    }
-  }]
+  ]
 }]

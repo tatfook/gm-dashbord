@@ -45,7 +45,7 @@ export default class User extends BaseResource {
 
   static actions() {
     return {
-      disabled: ['all']
+      disabled: ['create', 'delete', 'edit']
     }
   }
 }

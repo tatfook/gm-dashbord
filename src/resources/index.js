@@ -2,11 +2,15 @@ import _ from 'lodash'
 import Admin from './admin'
 import User from './user'
 import Role from './role'
+import Email from './email'
+import Notice from './notice'
 
 export const resources = {
   Admin,
   User,
-  Role
+  Role,
+  Email,
+  Notice
 }
 
 export const newResource = (name, row) => {
