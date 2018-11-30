@@ -71,6 +71,10 @@ export const asyncRouterMap = [{
   path: '/',
   component: Layout,
   name: 'Operation',
+  meta: {
+    title: '客服工具',
+    icon: 'nested'
+  },
   children: [
     {
       path: '/user',
