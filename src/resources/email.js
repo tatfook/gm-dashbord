@@ -214,7 +214,7 @@ export default class Email extends BaseResource {
 
   static actions() {
     return {
-      disabled: ['destroy', 'show'],
+      disabled: ['destroy'],
       extra: [
         {
           name: 'send',
