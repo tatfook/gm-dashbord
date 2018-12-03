@@ -72,19 +72,20 @@ export const asyncRouterMap = [{
   component: Layout,
   name: 'Operation',
   meta: {
-    title: '客服工具',
+    title: '运维工具',
     icon: 'nested'
   },
   children: [
+    // {
+    //   // path: '/user',
+    //   // component: () => import('@/views/operation/user/index'),
+    //   // name: 'User',
+    //   // resource: 'User',
+    //   // meta: {
+    //   //   title: '用户检测'
+    //   // }
+    // },
     {
-      path: '/user',
-      component: () => import('@/views/operation/user/index'),
-      name: 'User',
-      resource: 'User',
-      meta: {
-        title: '用户管理'
-      }
-    }, {
       path: '/email',
       component: () => import('@/views/operation/email/index'),
       name: 'Email',
@@ -92,7 +93,8 @@ export const asyncRouterMap = [{
       meta: {
         title: '邮件管理'
       }
-    }, {
+    },
+    {
       path: '/notice',
       component: () => import('@/views/operation/notice/index'),
       name: 'Notice',

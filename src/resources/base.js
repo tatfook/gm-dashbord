@@ -144,4 +144,8 @@ export default class BaseResource {
     // this.name is not working on production
     return i18n.t(['resources', store.getters.resourceName, 'attr', col].join('.'))
   }
+
+  static i18nBase(attr) {
+    return i18n.t(attr)
+  }
 }

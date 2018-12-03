@@ -218,8 +218,9 @@ export default class Email extends BaseResource {
       extra: [
         {
           name: 'send',
-          func: (row) => { this.api().send(row) },
-          button: 'warning'
+          func: async(row) => { await this.api().send(row) },
+          button: 'warning',
+          confirm: this.i18nBase('resources.Email.confirm.publish')
         }
       ]
     }

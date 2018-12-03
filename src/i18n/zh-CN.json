@@ -90,6 +90,9 @@
         "delayAt": "延期发送时间",
         "createdAt": "创建日期",
         "updatedAt": "更新日期"
+      },
+      "confirm": {
+        "publish": "是否确认发布邮件？"
       }
     },
     "Notice": {
@@ -102,6 +105,9 @@
         "serverIds": "服务器",
         "createdAt": "创建日期",
         "updatedAt": "更新日期"
+      },
+      "confirm": {
+        "publish": "是否确认发布公共？"
       }
     }
   }
