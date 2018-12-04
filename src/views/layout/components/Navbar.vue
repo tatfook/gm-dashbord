@@ -14,6 +14,11 @@
             {{$t('home')}}
           </el-dropdown-item>
         </router-link>
+        <router-link class="inlineBlock" to="/admin">
+          <el-dropdown-item>
+            {{$t('admin')}}
+          </el-dropdown-item>
+        </router-link>
         <el-dropdown-item divided>
           <span @click="logout" style="display:block;">{{$t('logout')}}</span>
         </el-dropdown-item>
