@@ -56,7 +56,9 @@
         "id": "序号",
         "username": "用户名",
         "role": "角色",
-        "password": "密码"
+        "password": "密码",
+        "createdAt": "创建日期",
+        "updatedAt": "更新日期"
       }
     },
     "User": {
