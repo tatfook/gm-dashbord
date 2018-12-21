@@ -133,7 +133,7 @@ export const asyncRouterMap = [{
   children: [
     {
       path: '/announcement',
-      component: () => import('@/views/operation/announcement/index'),
+      component: () => import('@/views/operation/noticeLog/index'),
       name: 'Announcement',
       resource: 'Announcement',
       meta: {

@@ -3,7 +3,7 @@ import createService from '@/utils/request'
 const request = createService()
 
 export default {
-  getLogs(type) {
+  list({ type }) {
     return request({
       method: 'get',
       url: `/admin/logs?type=${type}`

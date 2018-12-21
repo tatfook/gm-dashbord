@@ -28,6 +28,10 @@ export default {
     resource: {
       type: String,
       required: true
+    },
+    log: {
+      type: String,
+      default: ''
     }
   },
   data() {
@@ -69,7 +73,13 @@ export default {
     },
     async getList() {
       this.listLoading = true
-      await this.setQueryOptions({ queryOptions: this.listQuery })
+      if (this.log) {
+        const queryOptions_ = this.listQuery
+        const queryOptions = { ...queryOptions_, type: this.log }
+        await this.setQueryOptions({ queryOptions })
+      } else {
+        await this.setQueryOptions({ queryOptions: this.listQuery })
+      }
       this.listLoading = false
     },
     colFilter(col, value) {

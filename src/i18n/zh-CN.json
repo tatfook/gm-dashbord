@@ -109,6 +109,17 @@
       "confirm": {
         "publish": "是否确认发布公共？"
       }
+    },
+    "NoticeLog": {
+      "attr": {
+        "id": "序号",
+        "resourceId": "resourceId",
+        "type": "type",
+        "operatorId": "operatorId",
+        "detail": "detail",
+        "createdAt": "创建日期",
+        "updatedAt": "更新日期"
+      }
     }
   }
 }
