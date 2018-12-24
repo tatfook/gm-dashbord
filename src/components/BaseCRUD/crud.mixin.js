@@ -327,9 +327,23 @@ export default {
       if (!this.showingFormVisible) return []
       const data = []
       _.forEach(this.attributes, item => {
+        let activeRowData = ''
+        if (item.name === 'detail') {
+          let content = ''
+          const activeData = JSON.parse(this.activeRow[item.name])
+          for (const key in activeData) {
+            content += key + ':' + activeData[key] + '\n'
+          }
+          activeRowData = content
+        } else {
+          activeRowData = this.activeRow[item.name]
+        }
+        if (item.type === 'Date') {
+          activeRowData = moment(this.activeRow[item.name]).format(FORMAT.date)
+        }
         data.push({
           key: item.name,
-          value: this.activeRow[item.name]
+          value: activeRowData
         })
       })
       return data

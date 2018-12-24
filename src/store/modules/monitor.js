@@ -22,13 +22,11 @@ const monitor = {
   actions: {
     async getCurrentOnlineNumberArr({ commit }) {
       const res = await monitorApi.getCurrentOnlineNumber()
-      console.log('currentonline', res)
       commit('SET_CURRENT_ONLINE_NUMBER', res)
     },
     async getMaxOnlineNumberArr({ commit }, { fromDate, toDate }) {
       const res = await monitorApi.getMaxOnlineNumber(fromDate, toDate)
       if (fromDate && toDate) {
-        console.log('MaxOnlineNumber', res)
         commit('SET_TODAY_MAX_ONLINE_NUMBER', res)
       } else {
         commit('SET_MAX_ONLINE_NUMBER', res)
