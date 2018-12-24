@@ -53,7 +53,7 @@ export default class NoticeLog extends BaseResource {
 
   static actions() {
     return {
-      disabled: ['destroy', 'create', 'export', 'delete', 'edit']
+      disabled: ['destroy', 'create', 'delete', 'edit']
     }
   }
 }

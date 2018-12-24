@@ -133,22 +133,22 @@ export const asyncRouterMap = [{
   children: [
     {
       path: '/noticeLog',
-      component: () => import('@/views/operation/noticeLog/index'),
+      component: () => import('@/views/operation/logs/noticeLog'),
       name: 'NoticeLog',
       resource: 'NoticeLog',
       meta: {
         title: '公告发布日志'
       }
+    },
+    {
+      path: '/emailLog',
+      component: () => import('@/views/operation/logs/emailLog'),
+      name: 'EmailLog',
+      resource: 'EmailLog',
+      meta: {
+        title: '邮件发布日志'
+      }
     }
-    // {
-    //   path: '/mailOut',
-    //   component: () => import('@/views/operation/noticeLog/index'),
-    //   name: 'MailOut',
-    //   resource: 'MailOut',
-    //   meta: {
-    //     title: '邮件发布日志'
-    //   }
-    // },
     // {
     //   path: '/complaintMailbox ',
     //   component: () => import('@/views/operation/noticeLog/index'),

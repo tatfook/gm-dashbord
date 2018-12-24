@@ -4,7 +4,7 @@
       <el-button v-if="can('create')" class="filter-item" style="margin-left: 10px;" @click="handleCreate" type="primary" icon="el-icon-plus">{{$t('new')}}</el-button>
       <el-button v-if="can('export')" class="filter-item" type="primary" icon="el-icon-download" :loading="downloadLoading" @click="handleExport">{{$t('export')}}</el-button>
       <el-button v-if="can('delete')" class="filter-item" style="margin-left: 10px;" @click="handleDeleteAll" type="primary" icon="el-icon-plus">{{$t('deleteAll')}}</el-button>
-      <el-dropdown style="float: right" @command="handleAddFilter">
+      <el-dropdown style="float: right" @command="handleAddFilter" v-if="!log">
         <el-button type="primary">
           {{$t('addFilter')}}
           <i class="el-icon-arrow-down el-icon--right"></i>

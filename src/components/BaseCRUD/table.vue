@@ -76,6 +76,8 @@ export default {
       this.$emit('handleSort', evt.prop, order)
     },
     handleSelectionChange(selectedResources) {
+      console.log('selectedResources', selectedResources)
+      console.log('selectedResources', selectedResources[0].createdAt)
       this.setSelectedResouces({ selectedResources })
     }
   },
