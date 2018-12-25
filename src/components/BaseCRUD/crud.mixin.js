@@ -28,10 +28,6 @@ export default {
     resource: {
       type: String,
       required: true
-    },
-    log: {
-      type: String,
-      default: ''
     }
   },
   data() {
@@ -73,13 +69,7 @@ export default {
     },
     async getList() {
       this.listLoading = true
-      if (this.log) {
-        const queryOptions_ = this.listQuery
-        const queryOptions = { ...queryOptions_, type: this.log }
-        await this.setQueryOptions({ queryOptions })
-      } else {
-        await this.setQueryOptions({ queryOptions: this.listQuery })
-      }
+      await this.setQueryOptions({ queryOptions: this.listQuery })
       this.listLoading = false
     },
     colFilter(col, value) {
@@ -327,23 +317,9 @@ export default {
       if (!this.showingFormVisible) return []
       const data = []
       _.forEach(this.attributes, item => {
-        let activeRowData = ''
-        if (item.name === 'detail') {
-          let content = ''
-          const activeData = JSON.parse(this.activeRow[item.name])
-          for (const key in activeData) {
-            content += key + ':' + activeData[key] + '\n'
-          }
-          activeRowData = content
-        } else {
-          activeRowData = this.activeRow[item.name]
-        }
-        if (item.type === 'Date') {
-          activeRowData = moment(this.activeRow[item.name]).format(FORMAT.date)
-        }
         data.push({
           key: item.name,
-          value: activeRowData
+          value: this.activeRow[item.name]
         })
       })
       return data

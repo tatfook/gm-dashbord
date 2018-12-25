@@ -5,9 +5,9 @@ const request = createService()
 export default {
   list(params) {
     return request({
-      method: 'get',
-      url: '/admin/logs',
-      params: params
+      method: 'post',
+      url: '/admin/logs/search',
+      data: { ...params, 'type-eq': 'email' }
     })
   }
 }

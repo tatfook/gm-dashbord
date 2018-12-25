@@ -1,12 +1,11 @@
 import {
   resourceCRUD
 } from '@/api/resources'
-import noticeLogApi from '@/api/noticeLog.js'
+import emailLogApi from '@/api/emailLog'
 import BaseResource from './base'
-// import store from '@/store'
 import _ from 'lodash'
 
-const crudAPI = _.merge({}, resourceCRUD('noticeLog'), noticeLogApi)
+const crudAPI = _.merge({}, resourceCRUD('noticeLog'), emailLogApi)
 
 export default class NoticeLog extends BaseResource {
   static attributes() {

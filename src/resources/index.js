@@ -5,6 +5,7 @@ import Role from './role'
 import Email from './email'
 import Notice from './notice'
 import NoticeLog from './noticeLog'
+import EmailLog from './emailLog'
 
 export const resources = {
   Admin,
@@ -12,7 +13,8 @@ export const resources = {
   Role,
   Email,
   Notice,
-  NoticeLog
+  NoticeLog,
+  EmailLog
 }
 
 export const newResource = (name, row) => {

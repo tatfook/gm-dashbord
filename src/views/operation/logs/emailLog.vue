@@ -1,5 +1,5 @@
 <template>
-  <base-crud resource='NoticeLog' log="email"/>
+  <base-crud resource='EmailLog'/>
 </template>
 
 <script>
