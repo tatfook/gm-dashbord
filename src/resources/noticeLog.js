@@ -3,7 +3,6 @@ import {
 } from '@/api/resources'
 import noticeLogApi from '@/api/noticeLog.js'
 import BaseResource from './base'
-// import store from '@/store'
 import _ from 'lodash'
 
 const crudAPI = _.merge({}, resourceCRUD('noticeLog'), noticeLogApi)

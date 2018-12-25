@@ -66,14 +66,6 @@ export default {
       return this.cachedCan[action]
     },
     rowValue(row, key) {
-      if (key === 'detail') {
-        const detailContent = JSON.parse(_.get(row, key))
-        let content = ''
-        for (const key in detailContent) {
-          content += key + ':' + detailContent[key] + '\n'
-        }
-        return content
-      }
       return _.get(row, key)
     },
     handleAction(action, row) {
