@@ -20,17 +20,20 @@
 
 <script>
 import lineChart from '@/components/Charts/lineMarker'
-import { mapGetters, mapActions } from 'vuex'
 import _ from 'lodash'
 import moment from 'moment'
 import { Base64 } from 'js-base64'
 import { i18n } from '@/i18n'
+import monitorApi from '@/api/monitor'
 
 export default {
   data() {
     return {
       serverNumber: 0,
       isLoading: true,
+      currentOnlineNumber: {},
+      maxOnlineNumber: {},
+      todayMaxOnlineNumber: {},
       downloadLoading: false
     }
   },
@@ -38,24 +41,21 @@ export default {
     lineChart
   },
   async created() {
-    await this.getCurrentOnlineNumberArr()
     const today = moment().format('YYYY-MM-DD')
-    const date = {
-      fromDate: today,
-      toDate: today
-    }
-    await Promise.all([
-      this.getMaxOnlineNumberArr({}),
-      this.getMaxOnlineNumberArr(date)
-    ]) // 不传参数拉取近一个月的每天最高在线人数
+    const [online, maxOnline, todayMaxOnline] = await Promise.all([
+      monitorApi.getCurrentOnlineNumber(),
+      monitorApi.getMaxOnlineNumber({}),
+      monitorApi.getMaxOnlineNumber({
+        fromDate: today,
+        toDate: today
+      })
+    ])
+    this.currentOnlineNumber = online
+    this.maxOnlineNumber = maxOnline
+    this.todayMaxOnlineNumber = todayMaxOnline
     this.isLoading = false
   },
   computed: {
-    ...mapGetters({
-      currentOnlineNumber: 'currentOnlineNumber',
-      maxOnlineNumber: 'maxOnlineNumber',
-      todayMaxOnlineNumber: 'todayMaxOnlineNumber'
-    }),
     currentNumber() {
       let number = 0
       switch (this.serverNumber) {
@@ -104,17 +104,14 @@ export default {
     }
   },
   methods: {
-    ...mapActions({
-      getCurrentOnlineNumberArr: 'getCurrentOnlineNumberArr',
-      getMaxOnlineNumberArr: 'getMaxOnlineNumberArr'
-    }),
-
     handleExport() {
       this.downloadLoading = true
       import('@/vendor/Export2Excel').then(excel => {
         const tHeader = Object.keys(this.maxOnlineNumber[0])
         const tHeader_zh = tHeader.map(i => i18n.t(`monitor.${i}`))
-        const data = this.maxOnlineNumber.map(row => tHeader.map(key => this.rowValue(row, key)))
+        const data = this.maxOnlineNumber.map(row =>
+          tHeader.map(key => this.rowValue(row, key))
+        )
         excel.export_json_to_excel({
           header: tHeader_zh,
           data,

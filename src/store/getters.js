@@ -19,14 +19,6 @@ const getters = {
   attributes: state => state.resource.attributes,
   api: state => state.resource.api,
   nested: state => state.resource.nested,
-  nestedData: state => state.resource.nestedData,
-
-  serversInfo: state => state.servers.serversInfo,
-  all_servers: state => state.servers.serversInfo.all_servers,
-  online: state => state.servers.serversInfo.online,
-
-  currentOnlineNumber: state => state.monitor.currentOnlineNumber,
-  maxOnlineNumber: state => state.monitor.maxOnlineNumber,
-  todayMaxOnlineNumber: state => state.monitor.todayMaxOnlineNumber
+  nestedData: state => state.resource.nestedData
 }
 export default getters

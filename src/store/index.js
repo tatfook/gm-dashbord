@@ -2,8 +2,6 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import app from './modules/app'
 import user from './modules/user'
-import servers from './modules/servers'
-import monitor from './modules/monitor'
 import permission from './modules/permission'
 import resource from './modules/resource'
 import getters from './getters'
@@ -15,9 +13,7 @@ const store = new Vuex.Store({
     app,
     user,
     permission,
-    resource,
-    servers,
-    monitor
+    resource
   },
   getters
 })
