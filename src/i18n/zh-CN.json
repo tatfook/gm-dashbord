@@ -50,6 +50,17 @@
   "search": "搜索",
   "send": "发送",
 
+  "monitor": {
+    "id": "序号",
+    "max": "最高在线人数",
+    "createdAt": "创建日期",
+    "updatedAt": "更新日期",
+    "date": "日期",
+    "year": "年",
+    "month": "月",
+    "day": "日"
+  },
+
   "resources": {
     "Admin": {
       "attr": {
@@ -110,6 +121,28 @@
       },
       "confirm": {
         "publish": "是否确认发布公共？"
+      }
+    },
+    "NoticeLog": {
+      "attr": {
+        "id": "序号",
+        "resourceId": "资源编号",
+        "type": "类型",
+        "operatorId": "操作号",
+        "detail": "详情",
+        "createdAt": "创建日期",
+        "updatedAt": "更新日期"
+      }
+    },
+    "EmailLog": {
+      "attr": {
+        "id": "序号",
+        "resourceId": "资源编号",
+        "type": "类型",
+        "operatorId": "操作号",
+        "detail": "详情",
+        "createdAt": "创建日期",
+        "updatedAt": "更新日期"
       }
     }
   }

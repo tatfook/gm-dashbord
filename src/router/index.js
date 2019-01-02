@@ -86,6 +86,24 @@ export const asyncRouterMap = [{
     //   // }
     // },
     {
+      path: '/servers',
+      component: () => import('@/views/operation/servers/index'),
+      name: 'Servers',
+      resource: 'Servers',
+      meta: {
+        title: '服务器信息'
+      }
+    },
+    {
+      path: '/monitor',
+      component: () => import('@/views/operation/monitor/index'),
+      name: 'Monitor',
+      resource: 'Monitor',
+      meta: {
+        title: '监测工具'
+      }
+    },
+    {
       path: '/email',
       component: () => import('@/views/operation/email/index'),
       name: 'Email',
@@ -104,4 +122,96 @@ export const asyncRouterMap = [{
       }
     }
   ]
-}]
+}, {
+  path: '/advanced',
+  component: Layout,
+  name: 'Advanced',
+  meta: {
+    title: '高级',
+    icon: 'nested'
+  },
+  children: [
+    {
+      path: '/noticeLog',
+      component: () => import('@/views/operation/logs/noticeLog'),
+      name: 'NoticeLog',
+      resource: 'NoticeLog',
+      meta: {
+        title: '公告发布日志'
+      }
+    },
+    {
+      path: '/emailLog',
+      component: () => import('@/views/operation/logs/emailLog'),
+      name: 'EmailLog',
+      resource: 'EmailLog',
+      meta: {
+        title: '邮件发布日志'
+      }
+    }
+    // {
+    //   path: '/complaintMailbox ',
+    //   component: () => import('@/views/operation/noticeLog/index'),
+    //   name: 'ComplaintMailbox',
+    //   resource: 'ComplaintMailbox',
+    //   meta: {
+    //     title: '举报处理日志'
+    //   }
+    // },
+    // {
+    //   path: '/petition',
+    //   component: () => import('@/views/operation/noticeLog/index'),
+    //   name: 'Petition',
+    //   resource: 'Petition',
+    //   meta: {
+    //     title: '申诉处理日志'
+    //   }
+    // },
+    // {
+    //   path: '/forbidAccount',
+    //   component: () => import('@/views/operation/noticeLog/index'),
+    //   name: 'ForbidAccount',
+    //   resource: 'ForbidAccount',
+    //   meta: {
+    //     title: '封号日志'
+    //   }
+    // },
+    // {
+    //   path: '/resourceAudit',
+    //   component: () => import('@/views/operation/noticeLog/index'),
+    //   name: 'ResourceAudit',
+    //   resource: 'ResourceAudit',
+    //   meta: {
+    //     title: '资源审核日志'
+    //   }
+    // },
+    // {
+    //   path: '/gameReview',
+    //   component: () => import('@/views/operation/noticeLog/index'),
+    //   name: 'GameReview',
+    //   resource: 'GameReview',
+    //   meta: {
+    //     title: '游戏审核日志'
+    //   }
+    // },
+    // {
+    //   path: '/filmReview',
+    //   component: () => import('@/views/operation/noticeLog/index'),
+    //   name: 'FilmReview',
+    //   resource: 'FilmReview',
+    //   meta: {
+    //     title: '电影审核日志'
+    //   }
+    // },
+    // {
+    //   path: '/whiteList',
+    //   component: () => import('@/views/operation/noticeLog/index'),
+    //   name: 'WhiteList',
+    //   resource: 'WhiteList',
+    //   meta: {
+    //     title: '添加白名单'
+    //   }
+    // }
+  ]
+}
+]
