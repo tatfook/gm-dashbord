@@ -37,7 +37,7 @@ export default class Notice extends BaseResource {
         name: 'status',
         required: true,
         type: 'Number',
-        edit: true,
+        edit: false,
         component: 'select',
         default: () => { return 0 },
         options: statusMap,
