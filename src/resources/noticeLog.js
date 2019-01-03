@@ -24,7 +24,7 @@ export default class NoticeLog extends BaseResource {
     },
     {
       name: 'operatorId',
-      type: 'String',
+      type: 'Number',
       edit: false,
       associate: 'Admin',
       associateAs: 'operator'

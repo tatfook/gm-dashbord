@@ -128,7 +128,7 @@
         "id": "序号",
         "resourceId": "资源编号",
         "type": "类型",
-        "operatorId": "操作号",
+        "operatorId": "操作员",
         "detail": "详情",
         "createdAt": "创建日期",
         "updatedAt": "更新日期"
@@ -139,7 +139,7 @@
         "id": "序号",
         "resourceId": "资源编号",
         "type": "类型",
-        "operatorId": "操作号",
+        "operatorId": "操作员",
         "detail": "详情",
         "createdAt": "创建日期",
         "updatedAt": "更新日期"
