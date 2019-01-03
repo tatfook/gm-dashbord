@@ -1,11 +1,9 @@
 import {
   resourceCRUD
 } from '@/api/resources'
-import noticeLogApi from '@/api/noticeLog.js'
 import BaseResource from './base'
-import _ from 'lodash'
 
-const crudAPI = _.merge({}, resourceCRUD('noticeLog'), noticeLogApi)
+const crudAPI = resourceCRUD('logs')
 
 export default class NoticeLog extends BaseResource {
   static attributes() {
@@ -27,7 +25,9 @@ export default class NoticeLog extends BaseResource {
     {
       name: 'operatorId',
       type: 'String',
-      edit: false
+      edit: false,
+      associate: 'Admin',
+      associateAs: 'operator'
     },
     {
       name: 'detail',
@@ -48,6 +48,13 @@ export default class NoticeLog extends BaseResource {
   }
   static api() {
     return crudAPI
+  }
+
+  static queryFilter(query) {
+    // will include all by default, to make sure every associate works
+    query.include({ all: true, nested: false })
+    query.where({ 'type-eq': 'notice' })
+    return query
   }
 
   static actions() {

@@ -1,11 +1,9 @@
 import {
   resourceCRUD
 } from '@/api/resources'
-import emailLogApi from '@/api/emailLog'
 import BaseResource from './base'
-import _ from 'lodash'
 
-const crudAPI = _.merge({}, resourceCRUD('emailLog'), emailLogApi)
+const crudAPI = resourceCRUD('logs')
 
 export default class EmailLog extends BaseResource {
   static attributes() {
@@ -26,8 +24,10 @@ export default class EmailLog extends BaseResource {
     },
     {
       name: 'operatorId',
-      type: 'String',
-      edit: false
+      type: 'Number',
+      edit: false,
+      associate: 'Admin',
+      associateAs: 'operator'
     },
     {
       name: 'detail',
@@ -48,6 +48,13 @@ export default class EmailLog extends BaseResource {
   }
   static api() {
     return crudAPI
+  }
+
+  static queryFilter(query) {
+    // will include all by default, to make sure every associate works
+    query.include({ all: true, nested: false })
+    query.where({ 'type-eq': 'email' })
+    return query
   }
 
   static actions() {
