@@ -84,7 +84,6 @@ export default class Email extends BaseResource {
         type: 'Number',
         edit: false,
         component: 'select',
-        default: () => { return 0 },
         options: statusMap,
         filter: (value) => {
           for (const option of statusMap) {
@@ -114,7 +113,6 @@ export default class Email extends BaseResource {
         required: true,
         type: 'Number',
         component: 'select',
-        default: () => { return 0 },
         options: addresseeTypeMap,
         filter: (value) => {
           for (const option of addresseeTypeMap) {
@@ -132,7 +130,6 @@ export default class Email extends BaseResource {
         name: 'mailType',
         type: 'Number',
         required: true,
-        default: () => { return 0 },
         component: 'select',
         options: mailTypeMap,
         filter: (value) => {
@@ -149,13 +146,12 @@ export default class Email extends BaseResource {
       {
         name: 'validTime',
         type: 'Number',
-        default: () => { return 3600 }
+        default: 3600
       },
       {
         name: 'showPriority',
         required: true,
         type: 'Number',
-        default: () => { return 0 },
         component: 'select',
         options: showPriorityMap,
         filter: (value) => {
@@ -168,7 +164,6 @@ export default class Email extends BaseResource {
       {
         name: 'isDestroy',
         type: 'Number',
-        default: () => { return 0 },
         component: 'select',
         options: boolMap,
         filter: (value) => {
@@ -181,7 +176,6 @@ export default class Email extends BaseResource {
       {
         name: 'isPopping',
         type: 'Number',
-        default: () => { return 0 },
         component: 'select',
         options: boolMap,
         filter: (value) => {

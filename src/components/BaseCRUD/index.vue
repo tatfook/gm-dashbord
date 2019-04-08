@@ -36,7 +36,6 @@
 
 <script>
 import crudMixin from './crud.mixin'
-
 export default {
   name: 'BaseCRUD',
   mixins: [crudMixin]

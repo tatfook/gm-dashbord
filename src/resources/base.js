@@ -25,13 +25,13 @@ export default class BaseResource {
         required: true,
         width: '100px',
         rules: [
-          {min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'change'}
+          {min: 3, max: 5, message: ' 长度在 3 到 5 个字符 ', trigger: 'change'}
         ],
         filter: (value) => {
           const statusMap = {
-            0: '待用',
-            1: '已使用',
-            2: '禁用'
+            0: ' 待用 ',
+            1: ' 已使用 ',
+            2: ' 禁用'
           }
           return statusMap[status]
         }

@@ -10,13 +10,15 @@ export default class SequelizeQuery {
   }
 
   static associateKey(model, name) {
-    return `$${_.snakeCase(model)}.${name}$`
+    return `$${model}.${name}$`
   }
 
   static queryKey(attr, op) {
     return attr + '-' + op
   }
 
+  // example: {'name-eq': 'abc'} => {where: {name: {$eq: "abc"}}}
+  // nested: {'user-name-eq': 'abc'} => {where: {$user.name$: {$eq: "abc"}}}
   where(q = {}) {
     for (const key in q) {
       const k = key.split('-')
