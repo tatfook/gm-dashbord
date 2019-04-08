@@ -84,6 +84,7 @@ export default class Email extends BaseResource {
         type: 'Number',
         edit: false,
         component: 'select',
+        default: 0,
         options: statusMap,
         filter: (value) => {
           for (const option of statusMap) {
@@ -113,6 +114,7 @@ export default class Email extends BaseResource {
         required: true,
         type: 'Number',
         component: 'select',
+        default: 0,
         options: addresseeTypeMap,
         filter: (value) => {
           for (const option of addresseeTypeMap) {
@@ -130,6 +132,7 @@ export default class Email extends BaseResource {
         name: 'mailType',
         type: 'Number',
         required: true,
+        default: 0,
         component: 'select',
         options: mailTypeMap,
         filter: (value) => {
@@ -152,6 +155,7 @@ export default class Email extends BaseResource {
         name: 'showPriority',
         required: true,
         type: 'Number',
+        default: 0,
         component: 'select',
         options: showPriorityMap,
         filter: (value) => {
@@ -164,6 +168,7 @@ export default class Email extends BaseResource {
       {
         name: 'isDestroy',
         type: 'Number',
+        default: 0,
         component: 'select',
         options: boolMap,
         filter: (value) => {
@@ -176,6 +181,7 @@ export default class Email extends BaseResource {
       {
         name: 'isPopping',
         type: 'Number',
+        default: 0,
         component: 'select',
         options: boolMap,
         filter: (value) => {
@@ -212,9 +218,16 @@ export default class Email extends BaseResource {
       extra: [
         {
           name: 'send',
-          func: async(row) => { await this.api().send(row) },
           button: 'warning',
-          confirm: this.i18nBase('resources.Email.confirm.publish')
+          func: async(row) => {
+            await this.api().send(row)
+          },
+          title: (row) => {
+            return this.i18nBase('send')
+          },
+          confirmMsg: (row) => {
+            return this.i18nBase('resources.Email.confirm.publish')
+          }
         }
       ]
     }
