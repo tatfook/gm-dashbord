@@ -82,9 +82,16 @@ export default class Notice extends BaseResource {
       extra: [
         {
           name: 'send',
-          func: async(row) => { await this.api().send(row) },
           button: 'warning',
-          confirm: this.i18nBase('resources.Email.confirm.publish')
+          func: async(row) => {
+            await this.api().send(row)
+          },
+          title: (row) => {
+            return this.i18nBase('send')
+          },
+          confirmMsg: (row) => {
+            return this.i18nBase('resources.Notice.confirm.publish')
+          }
         }
       ]
     }
